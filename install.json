@@ -1,0 +1,80 @@
+{
+  "resources": {
+    "head": [
+      {
+        "type": "style",
+        "src": "./dist/photoswipe.css"
+      },
+      {
+        "type": "style",
+        "src": "./dist/default-skin/default-skin.css"
+      }
+    ],
+    "body": [
+      {
+        "type": "script",
+        "src": "./dist/photoswipe.js"
+      },
+      {
+        "type": "script",
+        "src": "./dist/photoswipe-ui-default.js"
+      },
+      {
+        "type": "script",
+        "src": "./dist/photoswipe-install-helper.js"
+      },
+      {
+        "type": "script",
+        "contents": "var EagerPhotoSwipeInstallHelper = new PhotoSwipeInstallHelper(); EagerPhotoSwipeInstallHelper.init(Eager.createElement(INSTALL_OPTIONS.location), INSTALL_OPTIONS)"
+      }
+    ]
+  },
+  "options": {
+    "properties": {
+      "location": {
+        "title": "Location",
+        "type": "object",
+        "format": "element"
+      },
+      "images": {
+        "title": "Images",
+        "type": "array",
+        "maxItems": 10,
+        "items": {
+          "type": "object",
+          "title": "Image",
+          "properties": {
+            "src": {
+              "title": "Image",
+              "type": "string",
+              "format":"image"
+            },
+            "title": {
+              "title": "Caption",
+              "description": "Optionally show a text caption for this image.",
+              "type": "string",
+              "maxLength": 200,
+              "validationMessage": "The caption cannot be longer than 200 characters."
+            }
+          },
+          "required": [
+            "src"
+          ]
+        },
+        "default": [
+          {
+            "src": "//www.filepicker.io/api/file/IgSaGwlqRBqcWEbPt8XV",
+            "title": "Woman carrying balloons"
+          },
+          {
+            "src": "//www.filepicker.io/api/file/njzWyYpRYaivIfFVg79Q",
+            "title": "Man in jeans on a skateboard"
+          },
+          {
+            "src": "//www.filepicker.io/api/file/wPy1TSPsR5WLUVMrzkjF"
+          }
+        ]
+      }
+    }
+  }
+}

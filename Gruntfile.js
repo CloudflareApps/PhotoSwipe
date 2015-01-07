@@ -42,6 +42,11 @@ module.exports = function(grunt) {
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */\n',
 
+    installHelperBanner:  '/*! PhotoSwipe Install Helper - <%= pkg.version %> - ' +
+      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */\n',
+
     // Task configuration.
     clean: {
       files: ['dist']
@@ -92,8 +97,10 @@ module.exports = function(grunt) {
         basePath: 'src/js/',
         dest: 'dist/photoswipe.js',
         uidest: 'dist/photoswipe-ui-default.js',
+        installhelperdest: 'dist/photoswipe-install-helper.js',
         banner: '<%= banner %>',
-        defaultUIBanner: '<%= defaultUIBanner %>'
+        defaultUIBanner: '<%= defaultUIBanner %>',
+        installHelperBanner: '<%= installHelperBanner %>'
       }
     },
 
@@ -257,6 +264,10 @@ module.exports = function(grunt) {
     var uiContents = grunt.file.read( basePath + 'ui/photoswipe-ui-default.js' );
     uiContents = this.data.defaultUIBanner + uiContents;
     grunt.file.write( this.data.uidest, uiContents );
+
+    var installHelperContents = grunt.file.read( basePath + 'install/helper.js' );
+    installHelperContents = this.data.installHelperBanner + installHelperContents;
+    grunt.file.write( this.data.installhelperdest, installHelperContents );
   });
 
 
