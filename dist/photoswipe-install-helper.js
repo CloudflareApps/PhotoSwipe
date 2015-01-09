@@ -372,6 +372,9 @@ PhotoSwipeInstallHelper = function() {
         _I('bottom: -99em') +
         _I('left: -99em') +
         _I('margin: auto') +
+        _I('min-width: 100%') +
+        _I('min-height: 100%') +
+        _I('margin: auto') +
         _I('-webkit-filter: blur(.25em)') +
       '}' +
       '.eager-photoswipe-button span {' +
