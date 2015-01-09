@@ -25,7 +25,7 @@
       },
       {
         "type": "script",
-        "contents": "var EagerPhotoSwipeInstallHelper = new PhotoSwipeInstallHelper(); EagerPhotoSwipeInstallHelper.init(Eager.createElement(INSTALL_OPTIONS.location), INSTALL_OPTIONS)"
+        "contents": "var EagerPhotoSwipeInstallHelper = new PhotoSwipeInstallHelper(); EagerPhotoSwipeInstallHelper.init(Eager.createElement(INSTALL_OPTIONS.element), INSTALL_OPTIONS)"
       }
     ]
   },
@@ -48,6 +48,9 @@
       },
       "display": {
         "order": 2,
+        "showIf": {
+          "source": "provided"
+        },
         "title": "Display type",
         "type": "string",
         "format": "radios",
@@ -65,19 +68,37 @@
       },
       "buttonText": {
         "order": 3,
+        "showIf": {
+          "display": "button"
+        },
         "title": "Button text",
-        "description": "(Only used when “Button” display type is selected above.)",
         "type": "string"
       },
       "location": {
         "order": 4,
+        "showIf": {
+          "source": "existing"
+        },
+        "title": "Part of the page to look for images",
+        "description": "If not specified, all images in the page will be made into a slideshow.",
+        "type": "string",
+        "format": "selector"
+      },
+      "element": {
+        "order": 5,
+        "showIf": {
+          "source": "provided"
+        },
         "title": "Location",
         "description": "Where to place the display type selected above.",
         "type": "object",
         "format": "element"
       },
       "images": {
-        "order": 5,
+        "order": 6,
+        "showIf": {
+          "source": "provided"
+        },
         "title": "Images",
         "type": "array",
         "maxItems": 10,

@@ -1,4 +1,4 @@
-/*! PhotoSwipe Install Helper - 4.0.3 - 2015-01-08
+/*! PhotoSwipe Install Helper - 4.0.3 - 2015-01-09
 * http://photoswipe.com
 * Copyright (c) 2015 Dmitry Semenov; */
 /**
@@ -347,8 +347,8 @@ PhotoSwipeInstallHelper = function() {
     var location, imgs, imgsToLoad, i, images, photoSwipe;
 
     try {
-      if (options.location && options.location.selector) {
-        location = document.querySelector(options.location.selector);
+      if (options.location) {
+        location = document.querySelector(options.location);
       }
 
       if (!location) {

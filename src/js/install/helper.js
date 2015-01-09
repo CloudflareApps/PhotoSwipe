@@ -344,8 +344,8 @@ PhotoSwipeInstallHelper = function() {
     var location, imgs, imgsToLoad, i, images, photoSwipe;
 
     try {
-      if (options.location && options.location.selector) {
-        location = document.querySelector(options.location.selector);
+      if (options.location) {
+        location = document.querySelector(options.location);
       }
 
       if (!location) {
