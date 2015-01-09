@@ -56,7 +56,8 @@ module.exports = function(grunt) {
       dist: {                      
         files: {      
           'dist/photoswipe.css': 'src/css/main.scss',
-          'dist/default-skin/default-skin.css': 'src/css/default-skin/default-skin.scss'
+          'dist/default-skin/default-skin.css': 'src/css/default-skin/default-skin.scss',
+          'dist/default-skin/default-skin-inline-images.css': 'src/css/default-skin/inline-images.scss'
         }
       }
     },

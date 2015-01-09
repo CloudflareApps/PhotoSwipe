@@ -8,6 +8,10 @@
       {
         "type": "style",
         "src": "./dist/default-skin/default-skin.css"
+      },
+      {
+        "type": "style",
+        "src": "./dist/default-skin/default-skin-inline-images.css"
       }
     ],
     "body": [
