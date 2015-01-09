@@ -181,12 +181,16 @@ PhotoSwipeInstallHelper = function() {
             images[i].h = this.height;
             images[i].w = this.width;
 
-            if (leftToLoad <= 0) {
+            if (leftToLoad === 0) {
               callback(images);
             }
           };
         })(i);
       }
+    }
+
+    if (leftToLoad === 0) {
+      return callback(images);
     }
 
     // Trigger all preloads after the onload functions are set up
