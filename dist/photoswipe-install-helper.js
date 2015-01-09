@@ -359,7 +359,7 @@ PhotoSwipeInstallHelper = function() {
         _I('margin: 0') +
         _I('padding: 0') +
         _I('text-align: center') +
-        _I('font-weight: 300') +
+        _I('font-weight: 400') +
         _I('letter-spacing: .04em') +
         _I('text-indent: @letter-spacing') +
         _I('text-decoration: none') +
