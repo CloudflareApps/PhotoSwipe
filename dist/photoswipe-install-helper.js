@@ -246,12 +246,15 @@ PhotoSwipeInstallHelper = function() {
   };
 
   helper._setupGalleryDisplay = function(location, options, maxImages) {
-    var gallery, a, img, i, c;
+    var gallery, styles, a, img, i, c;
 
     gallery = document.createElement('div');
     gallery.className = 'eager-photoswipe-gallery';
 
-    gallery.innerHTML += '' +
+    styles = document.createElement('div');
+    gallery.appendChild(styles);
+
+    styles.innerHTML += '' +
     '<style>' +
       '.eager-photoswipe-gallery {' +
         _I('display: block') +
@@ -266,6 +269,11 @@ PhotoSwipeInstallHelper = function() {
       '.eager-photoswipe-gallery a, .eager-photoswipe-gallery img {' +
         _I('display: block') +
         _I('max-width: 100%') +
+      '}' +
+      '.eager-photoswipe-gallery a {' +
+        _I('border: 0') +
+        _I('box-shadow: 0') +
+        _I('background: none') +
       '}' +
       '@media (max-width: 499px) {' +
         '.eager-photoswipe-gallery a {' +
