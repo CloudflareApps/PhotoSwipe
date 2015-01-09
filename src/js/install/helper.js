@@ -325,11 +325,61 @@ PhotoSwipeInstallHelper = function() {
   }
 
   helper.setupButtonDisplay = function(location, options) {
-    var button;
+    var button, buttonImage, span;
+
+    span = document.createElement('span');
+    span.innerText = options.buttonText || 'Open image gallery...';
 
     button = document.createElement('button');
     button.className = 'eager-photoswipe-button';
-    button.innerText = options.buttonText || 'Open image gallery...';
+
+    buttonImage = new Image();
+    buttonImage.src = _thumbnailURL(options.preloadedImages[0].src, 200, 150);
+
+    button.appendChild(buttonImage);
+    button.appendChild(span);
+
+    location.innerHTML = '' +
+    '<style>' +
+      '.eager-photoswipe-button {' +
+        _I('position: relative') +
+        _I('-webkit-font-smoothing: antialiased') +
+        _I('text-rendering: optimizeLegibility') +
+        _I('-webkit-tap-highlight-color: transparent') +
+        _I('user-select: none') +
+        _I('appearance: none') +
+        _I('display: inline-block') +
+        _I('cursor: pointer') +
+        _I('border: 0') +
+        _I('border-radius: .1875em') +
+        _I('font-size: 1em') +
+        _I('margin: 0') +
+        _I('padding: 0') +
+        _I('text-align: center') +
+        _I('font-weight: 300') +
+        _I('letter-spacing: .04em') +
+        _I('text-indent: @letter-spacing') +
+        _I('text-decoration: none') +
+        _I('overflow: hidden') +
+      '}' +
+      '.eager-photoswipe-button img {' +
+        _I('position: absolute') +
+        _I('top: -99em') +
+        _I('right: -99em') +
+        _I('bottom: -99em') +
+        _I('left: -99em') +
+        _I('margin: auto') +
+        _I('-webkit-filter: blur(.25em)') +
+      '}' +
+      '.eager-photoswipe-button span {' +
+        _I('display: block') +
+        _I('padding: 1em 2.5em') +
+        _I('border-radius: .1875em') +
+        _I('position: relative') +
+        _I('background: rgba(0, 0, 0, .66)') +
+        _I('color: #fff') +
+      '}' +
+    '</style>';
 
     location.appendChild(button);
 
