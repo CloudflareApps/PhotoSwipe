@@ -36,14 +36,16 @@ _addEventListener = function(el, eventName, handler) {
 };
 
 _ready = function(fn) {
-  if (document.addEventListener) {
-    return document.addEventListener('DOMContentLoaded', fn);
+  if (document.readyState != 'loading') {
+    fn();
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', fn);
   } else {
-    return document.attachEvent('onreadystatechange', function() {
-      if (document.readyState === 'interactive') {
-        return fn();
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState != 'loading') {
+        fn();
       }
-    });
+    })
   }
 };
 
