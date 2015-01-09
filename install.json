@@ -31,12 +31,53 @@
   },
   "options": {
     "properties": {
+      "source": {
+        "order": 1,
+        "title": "Image slideshow source",
+        "type": "string",
+        "format": "radios",
+        "enum": [
+          "provided",
+          "existing"
+        ],
+        "enumNames": {
+          "provided": "Use images provided below",
+          "existing": "Use images already in the page"
+        },
+        "default": "provided"
+      },
+      "display": {
+        "order": 2,
+        "title": "Display type",
+        "type": "string",
+        "format": "radios",
+        "enum": [
+          "gallery",
+          "teaser",
+          "button"
+        ],
+        "enumNames": {
+          "gallery": "Gallery<span class=\"help-text\">Show thumbnails of all images in grid. Clicking an image opens the fullscreen gallery.</span>",
+          "teaser": "Teaser<span class=\"help-text\">Show only the first few images as a teaser. Clicking an image opens the fullscreen gallery.</span>",
+          "button": "Button<span class=\"help-text\">Show a button to open the fullscreen gallery.</span>"
+        },
+        "default": "gallery"
+      },
+      "buttonText": {
+        "order": 3,
+        "title": "Button text",
+        "description": "(Only used when “Button” display type is selected above.)",
+        "type": "string"
+      },
       "location": {
+        "order": 4,
         "title": "Location",
+        "description": "Where to place the display type selected above.",
         "type": "object",
         "format": "element"
       },
       "images": {
+        "order": 5,
         "title": "Images",
         "type": "array",
         "maxItems": 10,
