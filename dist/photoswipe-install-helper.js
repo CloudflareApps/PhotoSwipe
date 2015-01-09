@@ -126,7 +126,7 @@ PhotoSwipeInstallHelper = function() {
 
     if (options.source === 'existing') {
       _ready(function(){
-        helper.createFromExistingImages(location, options);
+        helper.createFromExistingImages(options);
       });
     }
   };
@@ -341,10 +341,18 @@ PhotoSwipeInstallHelper = function() {
     helper.prepareOpenFromHash(options.preloadedImages);
   };
 
-  helper.createFromExistingImages = function(location, options) {
-    var imgs, imgsToLoad, i, images, photoSwipe;
+  helper.createFromExistingImages = function(options) {
+    var location, imgs, imgsToLoad, i, images, photoSwipe;
 
-    if (!location) {
+    try {
+      if (options.location && options.location.selector) {
+        location = document.querySelector(options.location.selector);
+      }
+
+      if (!location) {
+        location = document.body;
+      }
+    } catch (e) {
       location = document.body;
     }
 
