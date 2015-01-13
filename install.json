@@ -65,7 +65,7 @@
         ],
         "enumNames": {
           "gallery": "Gallery<span class=\"help-text\">Show thumbnails of all images in grid. Clicking an image opens the fullscreen gallery.</span>",
-          "teaser": "Teaser<span class=\"help-text\">Show only the first few images as a teaser. Clicking an image opens the fullscreen gallery.</span>",
+          "teaser": "Teaser<span class=\"help-text\">Show only the first three images as a teaser. Clicking an image opens the fullscreen gallery.</span>",
           "button": "Button<span class=\"help-text\">Show a button to open the fullscreen gallery.</span>"
         },
         "default": "gallery"
@@ -76,7 +76,8 @@
           "display": "button"
         },
         "title": "Button text",
-        "type": "string"
+        "type": "string",
+        "default": "Open image gallery..."
       },
       "location": {
         "order": 4,

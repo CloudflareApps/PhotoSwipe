@@ -239,7 +239,7 @@ PhotoSwipeInstallHelper = function() {
   };
 
   helper.setupTeaserDisplay = function(location, options) {
-    helper._setupGalleryDisplay(location, options, 4);
+    helper._setupGalleryDisplay(location, options, 3);
   };
 
   helper._setupGalleryDisplay = function(location, options, maxImages) {
@@ -297,7 +297,7 @@ PhotoSwipeInstallHelper = function() {
       '}' +
     '</style>';
 
-    if (!maxImages) {
+    if (!maxImages || maxImages > options.preloadedImages.length) {
       maxImages = options.preloadedImages.length;
     }
 
@@ -359,6 +359,8 @@ PhotoSwipeInstallHelper = function() {
         _I('text-rendering: optimizeLegibility') +
         _I('-webkit-tap-highlight-color: transparent') +
         _I('user-select: none') +
+        _I('-webkit-appearance: none') +
+        _I('-moz-appearance: none') +
         _I('appearance: none') +
         _I('display: inline-block') +
         _I('cursor: pointer') +
@@ -368,6 +370,7 @@ PhotoSwipeInstallHelper = function() {
         _I('margin: 0') +
         _I('padding: 0') +
         _I('text-align: center') +
+        _I('font-family: inherit') +
         _I('font-weight: 400') +
         _I('letter-spacing: .04em') +
         _I('text-indent: @letter-spacing') +
