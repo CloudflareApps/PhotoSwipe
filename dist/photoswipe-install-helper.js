@@ -1,4 +1,4 @@
-/*! PhotoSwipe Install Helper - 4.0.3 - 2015-01-09
+/*! PhotoSwipe Install Helper - 4.0.3 - 2015-01-31
 * http://photoswipe.com
 * Copyright (c) 2015 Dmitry Semenov; */
 /**
@@ -412,7 +412,7 @@ PhotoSwipeInstallHelper = function() {
   };
 
   helper.createFromExistingImages = function(options) {
-    var location, imgs, imgsToLoad, i, images, photoSwipe;
+    var location, imgs, imgsToLoad, i, image, images, photoSwipe;
 
     try {
       if (options.location) {
@@ -436,14 +436,19 @@ PhotoSwipeInstallHelper = function() {
 
     for (i = 0; i < imgs.length; i++) {
       if (imgs[i].src) {
-        images.push({
+        image = {
           _img: imgs[i],
           src: imgs[i].src,
           msrc: imgs[i].src,
-          w: imgs[i].width,
-          h: imgs[i].height,
           title: imgs[i].title || imgs[i].alt
-        });
+        };
+
+        if (imgs[i].naturalWidth && imgs[i].naturalHeight) {
+          image.w = imgs[i].naturalWidth;
+          image.h = imgs[i].naturalHeight;
+        }
+
+        images.push(image);
       }
     }
 
